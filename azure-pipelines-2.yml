@@ -1,0 +1,17 @@
+# Azure Pipeline to build and run a Maven project
+
+trigger:
+  - master
+
+pool:
+  name: Default
+
+steps:
+  - script: echo "My first Azure Pipeline for Maven project"
+    displayName: 'Run a one-line script'
+
+  - script: mvn clean install
+    displayName: 'Build with Maven'
+
+  - script: java -jar target/1BI22CS079_kushwanth-1.0-SNAPSHOT.jar
+    displayName: 'Run the JAR file'
